@@ -1,16 +1,16 @@
 
-colors = ['red', 'blue', 'cyan']
-p colors.class
-p colors.length
-p colors[0..1]
+x = 0
 
-colors[0] = 'white'
-p colors
+class MyError < StandardError; end
 
-colors.push('gold')
-p colors
+begin # try
+    if x == 0
+        raise MyError
+    end
+rescue MyError # expect as
+    p 'noooo'
+ensure # finally
+    p 'finished'
+end
 
-colors << 'silver'
-p colors
 
-p colors.sort
