@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# ここはDBに格納する初期データを記述するところです
+
+5.times do |i| # python: for range(5)
+    Post.create(title: "title#{i}", body: "body#{i}")
+end
+

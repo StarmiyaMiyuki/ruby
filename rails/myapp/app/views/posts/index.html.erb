@@ -1,0 +1,14 @@
+
+<header class="header">
+  <h2>My Posts</h2>
+</header>
+
+<section>
+  <ul>
+    <% for post in @posts %>
+    <li><%= post.title%></li>
+    <% end %>
+  </ul>
+</section>
+
+
