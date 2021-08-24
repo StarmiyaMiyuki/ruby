@@ -1,12 +1,24 @@
 
 <header class="header">
-  <h2>My Posts</h2>
+  <h2>
+    <%= link_to 'Add new', new_post_path, class: 'header-menu' %>
+  My Posts</h2>
 </header>
 
 <section>
   <ul>
     <% for post in @posts %>
-    <li><%= post.title%></li>
+    <li>
+      <!-- helper -->
+      <%= link_to post.title, post_path(post.id) %>
+      <%= link_to '[Edit]', edit_post_path(post.id), class: 'command' %>
+      <%= link_to '[x]',
+        post_path(post.id),
+        method: :delete,
+        class: 'command',
+        data: {confirm: 'Sure?'}
+      %>
+    </li>
     <% end %>
   </ul>
 </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Blog app</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- yieldの部分に自作のhtmlソースが表示される -->
+    <div class="container">
+      <h1><%= link_to image_tag('Glaceon.png', class: 'logo'),
+        root_path %>
+      </h1>
+      <%= yield %>
+    </div>
   </body>
 </html>
