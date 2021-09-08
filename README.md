@@ -14,7 +14,7 @@ print "hoge"
 # 末尾に改行あり
 puts "hoge"
 
-# debug用
+# debug用, すべてをStringクラスで返す, p Object.inspectと同義
 p "hoge"
 ```
 
@@ -70,6 +70,12 @@ a.pop(num) # 末尾からnum分除去
 
 # length
 a.size # 5
+
+# range
+for i in 0..3 # range(4)
+  puts i
+end
+# 0, 1, 2, 3
 ```
 
 ### Hash
@@ -183,7 +189,7 @@ while i < 5
 end
 ```
 
-### times文
+### timesメソッド
 
 for i in range(num)と同じ
 
@@ -191,6 +197,10 @@ for i in range(num)と同じ
 5.times do |i|
   puts "#{i}"
 end
+# 0, 1, 2, 3, 4
+
+# block
+5.times { |i| puts "#{i}" }
 ```
 
 ### for文
@@ -204,7 +214,7 @@ end
 # 1, 2, 3
 ```
 
-### each文
+### eachメソッド
 
 timesのArray, Hashバージョン
 
@@ -215,6 +225,9 @@ a.each do |i|
   puts i
 end
 # 1, 2, 3
+
+# block
+a.each { |i| puts i }
 ```
 
 ### loop文
@@ -258,7 +271,9 @@ for x in a
 end
 ```
 
-## 関数
+## 関数(Method)
+
+rubyのメソッドには暗黙の戻り値があるから、returnを省略しても最後に設置した変数か、さもなくばnilが返される
 
 ```ruby
 def hello(name)
