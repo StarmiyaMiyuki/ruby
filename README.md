@@ -236,6 +236,28 @@ loop do
 end
 ```
 
+### 例外処理
+
+```ruby
+{
+  begin: try,
+  rescue: except,
+  ensure: finally,
+}
+
+a = ["satou", 3, 0]
+
+for x in a
+  begin
+    puts 2 / x
+  rescue => e
+    puts e
+  ensure
+    puts "hoge"
+  end
+end
+```
+
 ## 関数
 
 ```ruby
@@ -252,8 +274,16 @@ name = hello(name)
 ```ruby
 class User < Object # 継承
   
+  @@count = 0 # クラス変数
+  VERSION = 1.1 # User::VERSIONでアクセス可能
+
   def initialize(name)
     @name = name # インスタンス変数
+    @@count += 1
+  end
+
+  def self.info() # Class method
+    puts "User info"
   end
 
   def hello()
@@ -285,5 +315,34 @@ class User < Object
   end
 
 end
+```
+
+### アクセス権
+
+- public: どこからでもアクセス可能。通常のメソッド
+- protected
+- private: 同じインスタンスでないとアクセス不可
+
+### Mix-in
+
+多重継承問題(スパゲッティ継承)の解決策として考案。以下の特性を持つ補助クラス
+
+- 単体でインスタンスを作らない抽象クラス
+- Mix-inクラス以外のクラスから多重継承しない
+
+```ruby
+module Man
+  
+  def info()
+    puts "have a mascle"
+  end
+end
+
+class Human
+
+  include Man
+end
+
+Human.new.info() # インスタンスメソッドとして呼び出し可能
 ```
 
