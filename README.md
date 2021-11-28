@@ -14,7 +14,7 @@ print "hoge"
 # 末尾に改行あり
 puts "hoge"
 
-# debug用
+# debug用, すべてをStringクラスで返す, p Object.inspectと同義
 p "hoge"
 ```
 
@@ -70,6 +70,12 @@ a.pop(num) # 末尾からnum分除去
 
 # length
 a.size # 5
+
+# range
+for i in 0..3 # range(4)
+  puts i
+end
+# 0, 1, 2, 3
 ```
 
 ### Hash
@@ -183,7 +189,7 @@ while i < 5
 end
 ```
 
-### times文
+### timesメソッド
 
 for i in range(num)と同じ
 
@@ -191,6 +197,10 @@ for i in range(num)と同じ
 5.times do |i|
   puts "#{i}"
 end
+# 0, 1, 2, 3, 4
+
+# block
+5.times { |i| puts "#{i}" }
 ```
 
 ### for文
@@ -204,7 +214,7 @@ end
 # 1, 2, 3
 ```
 
-### each文
+### eachメソッド
 
 timesのArray, Hashバージョン
 
@@ -215,6 +225,9 @@ a.each do |i|
   puts i
 end
 # 1, 2, 3
+
+# block
+a.each { |i| puts i }
 ```
 
 ### loop文
@@ -236,7 +249,31 @@ loop do
 end
 ```
 
-## 関数
+### 例外処理
+
+```ruby
+{
+  begin: try,
+  rescue: except,
+  ensure: finally,
+}
+
+a = ["satou", 3, 0]
+
+for x in a
+  begin
+    puts 2 / x
+  rescue => e
+    puts e
+  ensure
+    puts "hoge"
+  end
+end
+```
+
+## 関数(Method)
+
+rubyのメソッドには暗黙の戻り値があるから、returnを省略しても最後に設置した変数か、さもなくばnilが返される
 
 ```ruby
 def hello(name)
@@ -252,8 +289,16 @@ name = hello(name)
 ```ruby
 class User < Object # 継承
   
+  @@count = 0 # クラス変数
+  VERSION = 1.1 # User::VERSIONでアクセス可能
+
   def initialize(name)
     @name = name # インスタンス変数
+    @@count += 1
+  end
+
+  def self.info() # Class method
+    puts "User info"
   end
 
   def hello()
@@ -285,5 +330,34 @@ class User < Object
   end
 
 end
+```
+
+### アクセス権
+
+- public: どこからでもアクセス可能。通常のメソッド
+- protected
+- private: 同じインスタンスでないとアクセス不可
+
+### Mix-in
+
+多重継承問題(スパゲッティ継承)の解決策として考案。以下の特性を持つ補助クラス
+
+- 単体でインスタンスを作らない抽象クラス
+- Mix-inクラス以外のクラスから多重継承しない
+
+```ruby
+module Man
+  
+  def info()
+    puts "have a mascle"
+  end
+end
+
+class Human
+
+  include Man
+end
+
+Human.new.info() # インスタンスメソッドとして呼び出し可能
 ```
 

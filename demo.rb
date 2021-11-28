@@ -1,16 +1,13 @@
 
-x = 0
+a = ["satou", 3, 0]
 
-class MyError < StandardError; end
-
-begin # try
-    if x == 0
-        raise MyError
-    end
-rescue MyError # expect as
-    p 'noooo'
-ensure # finally
-    p 'finished'
+for x in a
+  begin
+    puts 2 / x
+  rescue => e
+    puts e
+  ensure
+    puts "hoge"
+  end
 end
-
 
