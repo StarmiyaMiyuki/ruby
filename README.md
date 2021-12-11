@@ -5,38 +5,38 @@
 
 # Syntax
 
-## 出力
+## Output
 
 ```ruby
-# 末尾に改行なし
+# without break line
 print "hoge"
 
-# 末尾に改行あり
+# with break line
 puts "hoge"
 
-# debug用, すべてをStringクラスで返す, p Object.inspectと同義
+# for debug. it returns All of them as String. it is same as p Object.inspect
 p "hoge"
 ```
 
-## データ型
+## Data Type
 
 ```ruby
 数値: Integer
-文字列: String # ""は特殊文字, 式展開(変数)が使える
+文字列: String # "" can use special character, #{variable}
 true: TrueClass
 false: FalseClass
 nil: NilClass
-配列: [1,true, "hoge"]
-ハッシュ: {key => "value"}
-# valueがシンボルの場合
-ハッシュ: {key: value}
-時刻: Time.now
+Array: [1,true, "hoge"]
+Hash: {key => value}
+# if key is symbol
+Hash: {key: value}
+Date: Time.now
 ```
 
-### 型調査
+### Type Check
 
 ```ruby
-# class check
+# type check
 "obj".class
 
 # search method
@@ -50,11 +50,11 @@ name = "tarou"
 
 name.upcase! # "TAROU"
 
-# 真理値変換
+# convert boolean
 name.include?("t") # true
 ```
 
-### 配列
+### Array
 
 ```ruby
 a = [1,2,3,4,5]
@@ -92,12 +92,12 @@ k.keys()
 # values
 k.values()
 
-# has?
+# has? return true or false
 k.has_key?("key1") # true
 k.has_value?("value3") # false
 ```
 
-### 型変換
+### Type Convert
 
 ```ruby
 # to Integer
@@ -116,7 +116,7 @@ Hash.to_a()
 Array.to_h()
 ```
 
-### 文字列フォーマット
+### String Format
 
 ```ruby
 # String
@@ -132,9 +132,9 @@ pi = 3.14
 puts "%f" % pi
 ```
 
-## 制御フロー
+## Control Flow
 
-### 演算子
+### Operands
 
 ```ruby
 等価: ==
@@ -143,7 +143,10 @@ puts "%f" % pi
 論理積: ||
 否定: !
 ```
-### if文
+
+## Condition
+
+### if
 
 if文はconditionがtrueであれば自動でbreakされる
 
@@ -159,7 +162,7 @@ else
 end
 ```
 
-### case文
+### case
 
 SQLライクな構文
 
@@ -178,7 +181,7 @@ else
 end
 ```
 
-### while文
+### while
 
 ```ruby
 i = 0
@@ -189,7 +192,9 @@ while i < 5
 end
 ```
 
-### timesメソッド
+## Loop
+
+### times method
 
 for i in range(num)と同じ
 
@@ -203,7 +208,7 @@ end
 5.times { |i| puts "#{i}" }
 ```
 
-### for文
+### for
 
 ```ruby
 a = [1,2,3]
@@ -214,7 +219,7 @@ end
 # 1, 2, 3
 ```
 
-### eachメソッド
+### each method
 
 timesのArray, Hashバージョン
 
@@ -230,7 +235,7 @@ end
 a.each { |i| puts i }
 ```
 
-### loop文
+### loop
 
 continueではなく**next**
 
@@ -249,7 +254,7 @@ loop do
 end
 ```
 
-### 例外処理
+## Exception Handling
 
 ```ruby
 {
@@ -271,7 +276,7 @@ for x in a
 end
 ```
 
-## 関数(Method)
+## Function(Method)
 
 rubyのメソッドには暗黙の戻り値があるから、returnを省略しても最後に設置した変数か、さもなくばnilが返される
 
@@ -311,7 +316,7 @@ hitoe = User.new("hitoe")
 hitoe.hello # hello hitoe
 ```
 
-### アクセサ
+### Accessor
 
 インスタンス変数はインスタンスメソッド等インスタンス空間でしか使用できないが、アクセサを宣言すると変数の権限を変更することができる
 
