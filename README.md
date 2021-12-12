@@ -4,15 +4,16 @@
 ## Output
 
 ```ruby
+var = :hoge
 # without break line
-print "hoge"
+print var # "hoge"
 
-# with break line. puts stands for put string
+# with break line. puts stands for put string. it returns All of them as String
 # return nil
-puts "hoge"
+puts :var # "hoge"
 
-# for debug. it returns All of them as String. it is same as p Object.inspect
-p "hoge"
+# for debug. it is same as puts Object.inspect
+p :var # :hoge
 ```
 
 # Data Type
@@ -56,6 +57,7 @@ puts "string var is #{s}"
 ```ruby
 "foo".length # 3
 "foo".empty? # false
+"   ".blank? # true
 ```
 
 ### Destructive Methods
@@ -105,16 +107,22 @@ s.split("a") # ["t", "sk", "tt", "w"]
 ## Hash
 
 ```ruby
-k = {"key1" => "value1", "key2" => "value2"}
-# k_simbol = {:key1 => "value1", :key2 => "value2"}
-k_simbol = {key1: "value1", key2: "value2"}
+h = {"key1" => "value1", "key2" => "value2"}
+# it is same as {:key1 => "value1", :key2 => "value2"}
+hSimbol = {key1: "value1", key2: "value2"}
 # keys
-k.keys()
+h.keys()
 # values
-k.values()
+h.values()
 # has? return true or false
-k.has_key?("key1") # true
-k.has_value?("value3") # false
+h.has_key?("key1") # true
+h.has_value?("value3") # false
+# pop
+h.delete("key2") # delete {"key2" => "value2"}
+
+h.each do |key, value| # require 2 values
+  puts key, value
+end
 ```
 
 ### Type Convert
@@ -305,6 +313,16 @@ name = hello(name)
 
 # Class
 
+All of ruby's variable is object because ruby is `object oriented`
+
+```ruby
+# check class
+s = String.new("foo")
+s.class # String
+s.class.superclass # Object
+s.class.superclass.superclass # BasicObject
+```
+
 ```ruby
 class User < Object # inherit
   
@@ -379,6 +397,14 @@ end
 
 Human.new.info() # can be called as instance methods
 ```
+
+# Module
+
+```ruby
+# import other module files
+require './filePath'
+```
+
 
 
 
