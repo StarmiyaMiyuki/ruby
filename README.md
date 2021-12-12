@@ -19,16 +19,16 @@ p :var # :hoge
 # Data Type
 
 ```ruby
-数値: Integer
-文字列: String # "" can use special character, #{variable}
-:variable: Symbol
-true: TrueClass
-false: FalseClass. this class are only false and nil
-nil: NilClass
+Integer: 1
+String: "foo" # "" can use special character, #{variable}
+Symbol: :bar
+TrueClass: true
+FalseClass: false. this class are only false and nil
+NilClass: nil
 Array: [1,true, "hoge"]
 Hash: {key => value}
 # if key is symbol
-Hash: {key: value}
+Hash: {symbolKey: value}
 Date: Time.now
 ```
 
