@@ -138,6 +138,10 @@ Integer.to_s()
 Hash.to_a()
 # to Hash
 Array.to_h()
+# to opposite Boolean
+!Object
+# to Boolean
+!!Object
 ```
 
 ### String Format
