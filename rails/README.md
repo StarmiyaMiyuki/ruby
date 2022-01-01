@@ -352,6 +352,11 @@ bundle exec guard
 
 ## add RSpec
 
+you have to load only once on your computer
+```shell
+gem install rspec
+```
+
 add package
 ```Gemfile
 group :development, :test do
@@ -360,8 +365,12 @@ end
 ```
 
 ```shell
+bundle install
+bin/rails generate rspec:install
+# bin/rails webpacker:install
 ```
 
+so far, when you generate model rails also create spec/models
 
 # Rails Commands
 
