@@ -368,6 +368,8 @@ end
 bundle install
 bin/rails generate rspec:install
 # bin/rails webpacker:install
+  
+rails db:migrate db:test:prepare
 ```
 
 so far, when you generate model rails also create spec/models
