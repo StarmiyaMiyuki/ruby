@@ -198,6 +198,8 @@ rails destroy model "model_name"
 
 rails db
 ```ruby
+# create database
+rails db:create
 # create table from model
 rails db:migrate
 rails db:migrate RAILS_ENV=production # migrate into production env
@@ -209,6 +211,8 @@ rails db:migrate:reset
 rails db:migrate VERSION=0
 # migrate schema
 rails generate migration "migrateName_models" "column:type"
+# insert seed from db/seeds.rb
+rails db:seed
 ```
 
 
