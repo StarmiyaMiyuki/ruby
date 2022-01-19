@@ -10,8 +10,8 @@ Rails supports `Webpack` and `Yarn`
 gem install rails
 # create app
 rails new "APP_NAME"
-# without view
-rails new "APP_NAME" --api # -d "DATABASE"
+# api mode without view
+rails new "APP_NAME" --api -d "DATABASE" -T # with database without default testing
 # run app
 bin/rails server # = rails server
 # cloud 9 set up
@@ -167,9 +167,9 @@ generate controllers
   - route get '*'
 ```ruby
 # controller
-rails generate controller "controllers_name" "actions"
+rails generate controller "Controllers_name" "actions"
 # remove
-rails destroy controller "controllers_name" "actions"
+rails destroy controller "Controllers_name" "actions"
 ```
 
 
@@ -191,9 +191,11 @@ generate model. it automatically generate "created_at" and "updated_at" fields
   - create test/fixtures/models.yml
 ```ruby
 # model
-rails generate model "model_name" "column:type"
+rails generate model "Model_name" "column:type"
+# create sub table
+rails generate model "Model_name" "column:type" "parent_table:references"
 # remove
-rails destroy model "model_name"
+rails destroy model "Model_name"
 ```
 
 rails db
@@ -378,6 +380,11 @@ rails db:migrate db:test:prepare
 
 so far, when you generate model rails also create spec/models
 
+run
+```shell
+bundle exec rspec
+```
+  
 # Rails Commands
 
 ```ruby
