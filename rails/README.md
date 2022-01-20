@@ -205,8 +205,12 @@ rails db:create
 # create table from model
 rails db:migrate
 rails db:migrate RAILS_ENV=production # migrate into production env
+# drop database
+rails db:drop
 # drop table
 rails db:rollback
+# drop and create database
+rails db:reset
 # fields reset
 rails db:migrate:reset
 # restore init version
