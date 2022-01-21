@@ -230,6 +230,19 @@ Rails's ORM is `Active Record`.
 - model = class(db/migrate/model.rb) named singular with capitalized first letter
 - teble = schema(db/migrate/schema.rb) named plural words
 
+- types
+  - :binary
+  - :boolean
+  - :date
+  - :datetime
+  - :decimal
+  - :float
+  - :integer
+  - :primary_key
+  - :string
+  - :text
+  - :time
+  - :timestamp
 
 create
 ```ruby
@@ -269,11 +282,11 @@ Model.destroy_all
 
 ## constraints
 
-validate
-  - presence: true or false
-  - length: {maximum: x, minimum: y}
-  - format: {with: /<re>/}
-  - uniqueness: true or false, {case_sensitive: false}
+below are validation key and value
+  - presence: true or false = NOT NULL
+  - uniqueness: true or false, { case_sensitive: false } = UNIQUE
+  - length: { maximum: x, minimum: y, message: "error message" }
+  - format: { with: ReExpression, message: "error message" }
 ```ruby:app/models/model.rb
   validates :column, key: value
 ```
