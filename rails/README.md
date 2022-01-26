@@ -373,7 +373,7 @@ bundle exec guard init
 bundle exec guard
 ```
 
-## add RSpec
+## RSpec
 
 you have to load only once on your computer
 ```shell
@@ -389,13 +389,31 @@ end
 
 ```shell
 bundle install
+# generate spec/ and rails_helper.rb, spec_helper.rb
 bin/rails generate rspec:install
-# bin/rails webpacker:install
-  
-rails db:migrate db:test:prepare
+# if you use webpack
+bin/rails webpacker:install
 ```
 
-so far, when you generate model rails also create spec/models
+add only spec file for model
+```shell
+rails generate rspec:"rspec_type" "model"
+```
+
+### RSpec Type
+
+- Model specs: type: :model
+- Controller specs: type: :controller
+- Request specs: type: :request
+- Feature specs: type: :feature
+- View specs: type: :view
+- Helper specs: type: :helper
+- Mailer specs: type: :mailer
+- Routing specs: type: :routing
+- Job specs: type: :job
+- System specs: type: :system
+
+
 
 run
 ```shell
@@ -416,6 +434,7 @@ rails console production # run in production env
 # run puma
 rails server
 rails server --environment production # run puma in production env
+rails server RAILS_ENV=production # this is equivalent to above
 ```
 
 config Cloud9 connection
