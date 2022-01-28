@@ -398,7 +398,7 @@ bundle exec guard init
 bundle exec guard
 ```
 
-## RSpec
+# RSpec
 
 you have to load only once on your computer
 ```shell
@@ -425,7 +425,7 @@ add only spec file for model
 rails generate rspec:"rspec_type" "model"
 ```
 
-### RSpec Type
+## RSpec Type
 
 - Model specs: type: :model
 - Controller specs: type: :controller
@@ -438,13 +438,46 @@ rails generate rspec:"rspec_type" "model"
 - Job specs: type: :job
 - System specs: type: :system
 
-
-
 run
 ```shell
 bundle exec rspec
 ```
-  
+
+# Rubocop
+
+RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter
+
+install into Gemfile
+```rb
+group :development do
+  gem 'rubocop'
+  gem 'rubocop-rails'
+end
+```
+
+create .rubocop_todo.yml
+```shell
+rubocop --auto-gen-config
+```
+
+first you have to create .rubocop.yml in project root directory
+refer to [.rubocop.yml](https://github.com/rubocop/rubocop/blob/master/.rubocop.yml)
+```shell
+touch .rubocop.yml
+```
+
+run
+```shell
+bundle exec rubocop
+# --auto-correct
+bundle exec rubocop -a
+# --lint
+bundle exec rubocop -l
+# --fix-layout
+bundle exec rubocop -x
+```
+
+
 # Rails Commands
 
 ```ruby
