@@ -296,12 +296,37 @@ below are validation key and value
   f.errors.full_messages # return error messages
 ```
 
-## other
+## SQL methods
 
-```shell:rails console
-# return the number of fields
-Model.count
-```
+- annotate: 
+- count: 
+- create_with: 
+- distinct: 
+- eager_load: 
+- extending: 
+- extract_associated: 
+- find: 
+- from: 
+- group: 
+- having: 
+- includes: 
+- joins: 
+- left_outer_joins: 
+- limit: 
+- lock: 
+- none: 
+- offset: 
+- optimizer_hints: 
+- order: 
+- preload: 
+- readonly: 
+- references: 
+- reorder: 
+- reselect: 
+- reverse_order: 
+- select: 
+- where: 
+
 
 ## encrypt password
 
