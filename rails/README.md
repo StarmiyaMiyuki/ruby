@@ -216,7 +216,7 @@ rails db:migrate:reset
 # restore init version
 rails db:migrate VERSION=0
 # migrate schema
-rails generate migration "migrateName_models" "column:type"
+rails generate migration "addColumnToModels" "column:type"
 # insert seed from db/seeds.rb
 rails db:seed
 ```
