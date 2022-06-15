@@ -1,5 +1,5 @@
 
-Rails is a web application development framework written in the Ruby programming lang.
+Rails is a `web application framework` written in the Ruby programming lang.
 root files are application.html.erb and application.css, application.js.
 Rails supports `Webpack` and `Yarn`
 
@@ -68,14 +68,19 @@ rails webpacker:install
 
 ## Routing
 
-write config/routes.rb
+file: config/routes.rb
 
 ```ruby
 Rails.application.routes.draw do
   
   root 'Controllers#homePath'
   # HTTP method
-  get 'Controllers/path'
+  get 'path', to: 'controller#action'
+  # namespace
+  namespace :PRE_PATH do
+  end
+  # resourceful routing with option
+  resources :controllers, only: %i[index, ...]
 end
 ```
 
@@ -83,9 +88,10 @@ end
 
 ```ruby:config/routes.rb
 # prev
-get 'controllers/path'
+get 'path' => 'controller#action'
+## get 'controllers/path'
 # next
-get '/path', to: 'controller#action' # = pathName/path
+get '/path', to: 'controller#action'
 ```
 
 show all routes
@@ -96,7 +102,7 @@ rails routes
 ### Resourceful Routing
 
 ```rb:config/routes.rb
-  resources :ctrls
+  resources :controllers
 ```
 
 ```shell
@@ -165,13 +171,32 @@ generate controllers
   - create app/assets/javascripts/Controller.coffee
   - create app/assets/stylesheets/Controller.scss
   - route get '*'
-```ruby
+
+```shell
 # controller
 rails generate controller "Controllers_name" "actions"
 # remove
 rails destroy controller "Controllers_name" "actions"
 ```
 
+## Syntax
+
+```ruby
+# @foo = instance variables refered to in global scope
+
+# run private actions before run actions
+before_action :private_action, only: [:index, ...]
+
+# resource route actions
+def index
+  # some action
+end
+
+# private scope
+private
+def private_action
+end
+```
 
 ## Helper
 
@@ -221,6 +246,27 @@ rails generate migration "addColumnToModels" "column:type"
 rails db:seed
 ```
 
+## Syntax
+
+```ruby
+# model association
+## many to one
+belongs_to :model
+## one to many
+has_many :model
+## one to one
+has_one :model
+### destroy wich child model
+has_many :model, dependent: :destroy
+
+# life cycle actions
+
+# validate
+validates :column, options:
+## options
+presence: true
+length: { maximum: integer, message: 'some message' }
+```
 
 
 ## ORM(Object Relational Mapping)
