@@ -354,23 +354,35 @@ hitoe.hello # hello hitoe
 
 ## Accessor
 
-インスタンス変数はインスタンスメソッド等インスタンス空間でしか使用できないが、アクセサを宣言すると変数の権限を変更することができる
+クラス変数やインスタンス変数はインスタンスメソッドからしか参照できないが、アクセサを宣言すると変数の権限を変更し、インスタンス変数自身から参照することが可能
 
 ```ruby
 class User < Object
   
+  # apply to instance var
   attr_accessor :name # getter + setter
   attr_reader :name # getter
 
+  # class var
+  @@age = 20
+
+  # instance method
   def initialize(name)
-    @name = name # self.name = name
+    # instance var
+    @name = name
   end
 
   def hello()
     puts "hello #{@name}"
   end
-
 end
+
+hitoe = User.new('hitoe')
+hitoe.name # hitoe
+# equivalent
+hitoe.instance_variable_get(:@name)
+# for class var
+User.class_variable_get(:@@age)
 ```
 
 ## アクセス権
