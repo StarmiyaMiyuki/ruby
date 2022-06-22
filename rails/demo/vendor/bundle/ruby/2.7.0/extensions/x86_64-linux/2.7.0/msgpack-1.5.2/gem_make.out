@@ -1,0 +1,35 @@
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/msgpack-1.5.2/ext/msgpack
+/home/hitoe/.rbenv/versions/2.7.4/bin/ruby -I /home/hitoe/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20220622-22442-1uywixq.rb extconf.rb
+checking for ruby/st.h... yes
+checking for st.h... yes
+checking for rb_enc_interned_str() in ruby.h... no
+creating Makefile
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/msgpack-1.5.2/ext/msgpack
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.19 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/msgpack-1.5.2/ext/msgpack
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.15 s in the future
+compiling buffer.c
+compiling buffer_class.c
+compiling extension_value_class.c
+compiling factory_class.c
+compiling packer.c
+compiling packer_class.c
+compiling packer_ext_registry.c
+compiling rbinit.c
+compiling rmem.c
+compiling unpacker.c
+compiling unpacker_class.c
+compiling unpacker_ext_registry.c
+linking shared-object msgpack/msgpack.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/msgpack-1.5.2/ext/msgpack
+make "DESTDIR=" install
+make: Warning: File 'msgpack.so' has modification time 0.28 s in the future
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20220622-22442-1xribxk/msgpack
+make: warning:  Clock skew detected.  Your build may be incomplete.
