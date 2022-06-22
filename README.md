@@ -1,5 +1,6 @@
 
-言わずもがな日本発祥で日系Web企業御用達の言語。1995年に誕生、JavaやLispの良いとこ取りをした動的型付け言語
+言わずもがな日本発祥で日系Web企業御用達の言語。1995年に誕生、JavaやLispの良いとこ取りをした動的型付け言語。
+2025年にかけて緩やかに終焉を予感させている。日系企業では技術的負債としての負の遺産になりそうだが、モノリシックアプリでは機能性は十分にある
 
 ## Output
 
@@ -282,13 +283,11 @@ end
 
 ## Exception Handling
 
-```ruby
-{
-  begin: try,
-  rescue: except,
-  ensure: finally,
-}
+- begin: try
+- rescue: except
+- ensure: finally
 
+```ruby
 a = ["satou", 3, 0]
 
 for x in a
