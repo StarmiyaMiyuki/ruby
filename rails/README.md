@@ -33,7 +33,7 @@ rails webpacker:install
 ```
 
 
-# Directory structure
+## Directory structure
 
 - Model: app/models/
 - View: app/views/
@@ -41,7 +41,7 @@ rails webpacker:install
 - Controller: app/controllers/
 - Helper: app/helpers/
 - Router: config/routes.rb
-- Schema: db/schema.rb
+- DB Schema: db/schema.rb
 - Asset: app/assets/
   - Image: images/
   - CSS: stylesheets/
@@ -49,24 +49,13 @@ rails webpacker:install
 - Gem: Gemfile
 
 
-## App dev path
+## MVC model
 
-1. install gem. create rails app
-2. generate controller
-3. TDD in test/
-4. UI design, transition design
-5. routing
-6. DB design
+- data flow
+  - from client: Browser -> Path(routing) with HTTP method -> Controller -> Model -> DB
+  - from DB: DB(query) -> Model(instance method) -> Controller(instance var) -> View(render) -> Browser 
 
-# View
-
-- application.html.erb: top html file. this is template file for all view files
-  - yield: this is function() or variable that is embedded from other component files
-- other component files
-  - provide: this sends props to template file by helper function
-
-
-## Routing
+# Routing
 
 file: config/routes.rb
 
@@ -84,12 +73,11 @@ Rails.application.routes.draw do
 end
 ```
 
-### Named URL
+## Named URL
 
 ```ruby:config/routes.rb
 # prev
 get 'path' => 'controller#action'
-## get 'controllers/path'
 # next
 get '/path', to: 'controller#action'
 ```
@@ -99,7 +87,7 @@ show all routes
 rails routes
 ```
 
-### Resourceful Routing
+## Resourceful Routing
 
 ```rb:config/routes.rb
   resources :controllers
@@ -117,7 +105,25 @@ edit_article GET    /ctrls/:id/edit(.:format) ctrls#edit
              DELETE /ctrls/:id(.:format)      ctrls#destroy
 ```
 
-# Embedded ruby(viewFile.html.erb)
+# View
+
+- application.html.erb: top html file. this is template file for all view files
+  - yield: this is function() or variable that is embedded from other component files
+- other component files
+  - provide: this sends props to template file by helper function
+
+application.html.erb
+```ruby
+# write sample
+<%= yield %>
+```
+
+others.html.erb
+```ruby
+<%= provide %>
+```
+
+## Embedded ruby(viewFile.html.erb)
 
 it it html file with embedded ruby. it makes `View` role in app
 
@@ -297,7 +303,7 @@ field1 = Model.new do |f|
   f.column2 = value2
 end
 field1.save
-# below is same
+# following is equivalent
 field1 = Model.create(column1: value1, column2: value2)
 ```
 read
@@ -328,14 +334,18 @@ Model.destroy_all
 
 ## constraints
 
-below are validation key and value
+following is validation key and value
   - presence: true or false = NOT NULL
   - uniqueness: true or false, { case_sensitive: false } = UNIQUE
   - length: { maximum: x, minimum: y, message: "error message" }
   - format: { with: ReExpression, message: "error message" }
+
+app/models/model.rb
 ```ruby:app/models/model.rb
   validates :column, key: value
 ```
+
+rails console
 ```ruby:rails console
   f = Model.new({})
   f.valid? # true or false
@@ -345,33 +355,34 @@ below are validation key and value
 ## SQL methods
 
 - annotate: 
-- count: 
+- count: COUNT()
 - create_with: 
 - distinct: 
 - eager_load: 
 - extending: 
 - extract_associated: 
-- find: 
+- find: find by id
+- find_by: find by some columns
 - from: 
-- group: 
-- having: 
+- group: GROUP BY
+- having: HAVING. it is WHERE after using GROUP BY
 - includes: 
 - joins: 
 - left_outer_joins: 
-- limit: 
+- limit: LIMIT
 - lock: 
 - none: 
-- offset: 
+- offset: OFFSET
 - optimizer_hints: 
-- order: 
+- order: ORDER BY. asc or desc
 - preload: 
 - readonly: 
 - references: 
 - reorder: 
 - reselect: 
 - reverse_order: 
-- select: 
-- where: 
+- select: SELECT
+- where: WHERE
 
 
 ## encrypt password
@@ -396,7 +407,6 @@ user should put "password" and "password_confirmation" values
 user = User.find_by(*)
 user.authenticate("password") # return instance or false
 ```
-
 
 
 # Test
@@ -526,7 +536,7 @@ bundle exec rubocop -x
 
 # Rails Commands
 
-```ruby
+```shell
 # generate controllers or model
 rails generate
 # run testing
@@ -548,11 +558,16 @@ config Cloud9 connection
   config.hosts.clear
 ```
 
-## environment
+## Rails environment
 
-1. development
-2. test
-3. production
+```shell
+rails s -e "ENVIRONMENT"
+```
+
+- running environments
+  1. development
+  2. test
+  3. production
 
 activate ssl
 ```rb:config/environments/production.rb
