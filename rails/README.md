@@ -105,6 +105,52 @@ edit_article GET    /ctrls/:id/edit(.:format) ctrls#edit
              DELETE /ctrls/:id(.:format)      ctrls#destroy
 ```
 
+
+# Controller
+
+generate controllers
+  - create app/controllers/Controller.rb
+  - create app/views/controller/action/html.erb
+  - create test/controllers/Controller_text.rb
+  - create app/helpers/Controller_helper.rb
+  - create app/assets/javascripts/Controller.coffee
+  - create app/assets/stylesheets/Controller.scss
+  - route get '*'
+
+```shell
+# controller
+rails generate controller "Controllers_name" "actions"
+# remove
+rails destroy controller "Controllers_name" "actions"
+```
+
+## Syntax
+
+```ruby
+# @foo = instance variables refered to in global scope
+
+# run private actions before run actions
+before_action :private_action, only: [:index, ...]
+
+# resource route actions
+def index
+  # some action
+end
+
+# private scope
+private
+
+def private_action
+end
+```
+
+## Helper
+
+it is helper `function`. it can be reused in every .rb or .erb files
+
+- app/controllers/helpers/*_helper.rb
+
+
 # View
 
 - application.html.erb: top html file. this is template file for all view files
@@ -165,50 +211,6 @@ it it html file with embedded ruby. it makes `View` role in app
 it is HTML component. it can be reused in .erb files
 
 - app/views/layouts/_partial.html.erb
-
-
-# Controller
-
-generate controllers
-  - create app/controllers/Controller.rb
-  - create app/views/controller/action/html.erb
-  - create test/controllers/Controller_text.rb
-  - create app/helpers/Controller_helper.rb
-  - create app/assets/javascripts/Controller.coffee
-  - create app/assets/stylesheets/Controller.scss
-  - route get '*'
-
-```shell
-# controller
-rails generate controller "Controllers_name" "actions"
-# remove
-rails destroy controller "Controllers_name" "actions"
-```
-
-## Syntax
-
-```ruby
-# @foo = instance variables refered to in global scope
-
-# run private actions before run actions
-before_action :private_action, only: [:index, ...]
-
-# resource route actions
-def index
-  # some action
-end
-
-# private scope
-private
-def private_action
-end
-```
-
-## Helper
-
-it is helper `function`. it can be reused in every .rb or .erb files
-
-- app/controllers/helpers/*_helper.rb
 
 
 # Model
