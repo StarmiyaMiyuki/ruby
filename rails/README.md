@@ -212,6 +212,30 @@ it is HTML component. it can be reused in .erb files
 
 - app/views/layouts/_partial.html.erb
 
+## react-rails
+
+### Get started with webpack and TypeScript
+```shell
+rails webpacker:install:react
+rails generate react:install
+bundle exec rails webpacker:install:typescript
+yarn add @types/react @types/react-dom
+```
+
+This gives you:
+- app/javascript/components/ directory for your React components
+- ReactRailsUJS setup in app/javascript/packs/application.js
+- app/javascript/packs/server_rendering.js for server-side rendering
+
+rails generate React Component. this adds component to app/javascript/components/
+```shell
+rails g react:component "ComponentName" "variable:type"
+```
+
+call React component in .erb file
+```ruby
+<%= react_component("ComponentName", { variable: "data" }) %>
+```
 
 # Model
 

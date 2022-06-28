@@ -1,0 +1,28 @@
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.18/ext/mri
+/home/hitoe/.rbenv/versions/2.7.4/bin/ruby -I /home/hitoe/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20220628-2088-kh2qb1.rb extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.18/ext/mri
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.37 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.18/ext/mri
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.35 s in the future
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+gcc  -D__SKIP_GNU -I/home/hitoe/.rbenv/versions/2.7.4/include     -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+wrapper.c:182:60: warning: ‘struct crypt_data’ declared inside parameter list will not be visible outside of this definition or declaration
+  182 | char *crypt_r(const char *key, const char *setting, struct crypt_data *data)
+      |                                                            ^~~~~~~~~~
+linking shared-object bcrypt_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/revvv/Desktop/git/ruby/rails/demo/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.18/ext/mri
+make "DESTDIR=" install
+make: Warning: File 'bcrypt_ext.so' has modification time 0.42 s in the future
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20220628-2088-10n49eb
+make: warning:  Clock skew detected.  Your build may be incomplete.
