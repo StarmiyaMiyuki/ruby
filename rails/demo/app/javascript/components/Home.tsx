@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 type Props = {
   greeting: string,
@@ -11,11 +10,7 @@ const Home = (props: Props) => {
     <React.Fragment>
       <p>Greeting: {props.greeting}</p>
       <p>maybe ok?</p>
-      <Link
-       to="/hello"
-      >
-        Go to Hello
-      </Link>
+      <a href="/hello">Go to hello</a>
     </React.Fragment>
   );
 };
