@@ -214,6 +214,8 @@ it is HTML component. it can be reused in .erb files
 
 ## react-rails
 
+ref: [react-rails](https://github.com/reactjs/react-rails)
+
 ### Get started with webpack and TypeScript
 ```shell
 rails webpacker:install:react
@@ -599,6 +601,16 @@ activate ssl
 ```rb:config/environments/production.rb
   config.force_ssl = true
 ```
+
+# Webpack
+
+Webpack is build manager for frontend that enable you to manage JavaScript, css, and static assets. it's migrated from Sprockets.
+
+## file locations
+
+- JavaScript: app/javascript
+- Webpack config: config/webpacker.yml
+- Babel config: babel.config.js
 
 
 # Heroku commands
