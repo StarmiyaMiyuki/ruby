@@ -169,7 +169,7 @@ others.html.erb
 <%= provide %>
 ```
 
-## Embedded ruby(viewFile.html.erb)
+## Template Engine(Embedded ruby)
 
 it it html file with embedded ruby. it makes `View` role in app
 
