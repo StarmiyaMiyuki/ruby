@@ -1,5 +1,5 @@
 
-Rails is a `web application framework` written in the Ruby programming lang.
+Rails is a `web application framework` developed by David Heinemeier Hansson.
 root files are application.html.erb and application.css, application.js.
 Rails supports `Webpack` and `Yarn`
 
@@ -58,6 +58,7 @@ rails webpacker:install
 # Routing
 
 file: config/routes.rb
+it maps path to Controller
 
 ```ruby
 Rails.application.routes.draw do
@@ -150,8 +151,22 @@ it is helper `function`. it can be reused in every .rb or .erb files
 
 - app/controllers/helpers/*_helper.rb
 
+## methods
+
+- render: It renders object to browser. it renders View template as default. you can customize template that you wanna render
+  - inline: inline HTML.erb
+  - plain: plain text
+  - html: HTML
+  - json: JSON
+  - status: return HTTP status
+- redirect_to: redirect other path
+  ex; redirect_to tasks_path status: 301
+- head: return HTTP header
+
 
 # View
+
+Rails refer to view/ folders that consists index.html.erb, show.html.erb, and more.
 
 - application.html.erb: top html file. this is template file for all view files
   - yield: this is function() or variable that is embedded from other component files
@@ -208,9 +223,28 @@ it it html file with embedded ruby. it makes `View` role in app
 
 ## Partial
 
-it is HTML component. it can be reused in .erb files
+you can insert partials into any .erb View files. it is HTML component.
 
-- app/views/layouts/_partial.html.erb
+partial.html.erb
+```html
+<p>This is partial</p>
+```
+
+view.html.erb
+```ruby
+<%= render "partial" %>
+<%= render "shared/partial" %>
+```
+
+- render args
+  - partial: specify partial
+  - locals: send props as Object to partial
+  - collection: loop render props
+
+- partial sources
+  - app/views/shared/_partial.html.erb
+  - app/views/_partial.html.erb
+
 
 ## react-rails
 
@@ -391,13 +425,15 @@ rails console
 - extract_associated: 
 - find: find by id
 - find_by: find by some columns
+- first: return first record as Object
+- last: return last record as Object
 - from: 
 - group: GROUP BY
 - having: HAVING. it is WHERE after using GROUP BY
 - includes: 
 - joins: 
 - left_outer_joins: 
-- limit: LIMIT
+- limit: LIMIT. it returns Relation not Array
 - lock: 
 - none: 
 - offset: OFFSET
