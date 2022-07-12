@@ -525,10 +525,11 @@ you have to load only once on your computer
 gem install rspec
 ```
 
-add package
+add package of rspec and factory bot
 ```Gemfile
 group :development, :test do
   gem 'rspec-rails', ">= 3.9.0"
+  gem 'factory_bot_rails'
 end
 ```
 
@@ -562,6 +563,20 @@ run
 ```shell
 bundle exec rspec
 ```
+
+## Methods
+- before assertion
+  - let(:var) {}: it's lazily-evaluated and run for the first time
+  - let!(:var) {}: it runs before each example
+    - create(:factory_bot, { columns }): create one instance
+    - create_list(:factory_bot, repeat_num, { columns }): create numth instances
+  - before(:each) block: methods run before running each assertions
+  - before(:all) block: it is executed only once before all of the examples
+  - include_context(:method): include method from ex; /shared, /support
+
+## factory bot
+
+create instance from Model
 
 # Rubocop
 
