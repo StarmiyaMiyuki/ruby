@@ -573,6 +573,10 @@ bundle exec rspec
   - before(:each) block: methods run before running each assertions
   - before(:all) block: it is executed only once before all of the examples
   - include_context(:method): include method from ex; /shared, /support
+- assertion
+  - expect(var).to matcher(actual): normal
+  - expect{ var }.to raise_error(Exception Object): if it occurs Error
+
 
 ## factory bot
 
