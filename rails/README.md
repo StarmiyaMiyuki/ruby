@@ -358,6 +358,9 @@ Rails's ORM is `Active Record`.
   - :time
   - :timestamp
 
+- crud: if record is invalid, it returns false
+- crud!: if record is invalid, it raises error
+
 create
 ```ruby
 field1 = Model.new do |f|
