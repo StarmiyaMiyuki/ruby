@@ -523,11 +523,11 @@ bundle exec guard
 
 # RSpec
 
-you have to load only once on your computer
 ```shell
 gem install rspec
 ```
 
+- factory bot: test instance. you can refer to it by let or before(:each)
 add package of rspec and factory bot
 ```Gemfile
 group :development, :test do
@@ -569,8 +569,8 @@ bundle exec rspec
 
 ## Methods
 - before assertion
-  - let(:var) {}: it's lazily-evaluated and run for the first time
-  - let!(:var) {}: it runs before each example
+  - let(:var) { block }: it's lazily-evaluated and run for the first time
+  - let!(:var) { block }: it runs before each example
     - create(:factory_bot, { columns }): create one instance
     - create_list(:factory_bot, repeat_num, { columns }): create numth instances
   - before(:each) block: methods run before running each assertions
@@ -579,6 +579,11 @@ bundle exec rspec
 - assertion
   - expect(var).to matcher(actual): normal
   - expect{ var }.to raise_error(Exception Object): if it occurs Error
+- block
+  - describe: large block
+    - subject { block }: you can reuse it in each it block
+  - context: middle block
+  - it: small block
 
 
 ## factory bot
