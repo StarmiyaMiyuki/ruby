@@ -624,6 +624,12 @@ bundle exec rubocop -l
 bundle exec rubocop -x
 ```
 
+# Rake Task
+
+command
+```shell
+bundle exec rake "namespace:file_name"
+```
 
 # Rails Commands
 
