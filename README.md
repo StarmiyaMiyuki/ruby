@@ -57,8 +57,14 @@ puts "string var is #{s}"
 
 ```ruby
 "foo".length # 3
-"foo".empty? # false
+# judge variable as nil
+"".nil? # false
+# judge variable as ["", []]
+"   ".empty? # false
+# judge variable as [" ", [], false, nil]
 "   ".blank? # true
+# judge variable as truthy
+"string".present?
 ```
 
 ### Destructive Methods
